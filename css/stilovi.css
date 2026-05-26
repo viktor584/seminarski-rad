@@ -1,0 +1,814 @@
+/* 1. GLOBALNI STILOVI I FONTOVI */
+@font-face {
+    font-family: 'RobotoLokalni';
+    src: url('fontovi/Roboto-Regular.ttf') format('truetype');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'RobotoLokalni', sans-serif;
+    background-color: #0b0b0b;
+    color: #ffffff;
+}
+
+/*2. BOOTSTRAP RESPONZIVNA NAVIGACIJA & KONTROLE*/
+.glavna-navigacija {
+    background-color: #000000 !important;
+    border-bottom: 2px solid #ffcc00;
+    padding: 10px 0;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+.sajt-logo {
+    width: 60px;
+    height: 60px;
+    margin-right: 12px;
+    object-fit: contain;
+    filter: drop-shadow(0px 0px 8px rgba(255, 204, 0, 0.5));
+    transition: transform 0.3s ease;
+}
+
+.logo-link:hover .sajt-logo {
+    transform: scale(1.1);
+}
+
+.nav-meni .nav-link {
+    color: #aaaaaa !important;
+    text-decoration: none;
+    padding: 8px 16px !important;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-meni .nav-link:hover, 
+.nav-meni .nav-link.aktivno {
+    color: #ffcc00 !important;
+}
+
+.navbar-toggler {
+    border-color: #ffcc00 !important;
+}
+
+.navbar-toggler-icon {
+    filter: invert(80%) sepia(50%) saturate(2000%) hue-rotate(5deg);
+}
+
+.kontrole-pristupacnosti {
+    display: flex;
+    gap: 8px;
+    margin-left: 20px;
+}
+
+.kontrola-btn {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    border: 1px solid #333333;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.kontrola-btn:hover {
+    background-color: #ffcc00;
+    color: #000000;
+    border-color: #ffcc00;
+}
+
+/* 3. POPRAVLJEN I OSIGURAN TAMNI MEGA MENI */
+.ima-mega-meni {
+    position: relative;
+    padding-bottom: 20px !important; 
+    margin-bottom: -20px !important;
+}
+
+.glavna-navigacija .mega-meni {
+    display: none;
+    position: absolute;
+    top: 100%; 
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90vw;
+    max-width: 1000px;
+    background-color: #111111 !important;
+    border: 2px solid #ffcc00;
+    border-radius: 8px;
+    padding: 25px 20px 20px 20px; 
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.7);
+    z-index: 9999;
+}
+
+@media (min-width: 992px) {
+    .glavna-navigacija .ima-mega-meni:hover .mega-meni {
+        display: block !important;
+    }
+}
+
+.mega-meni-red {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.mega-kolona {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.mega-kolona h4 {
+    color: #ffcc00 !important;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 5px;
+}
+
+.mega-kolona a {
+    display: block;
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 6px 0;
+    font-size: 14px;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.mega-kolona a:hover {
+    color: #ffcc00 !important;
+    padding-left: 5px;
+}
+
+/*4. JQUERY FADE SLAJDER (POČETNA)*/
+.slajder-kontejner {
+    position: relative;
+    width: 100%;
+    height: 550px;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.slajd {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.0s ease-in-out;
+    z-index: 1;
+}
+
+.slajd.aktivni-slajd {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slajd img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.tekst-slajda {
+    position: absolute;
+    bottom: 15%;
+    left: 5%;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 15px 25px;
+    border-left: 5px solid #ffcc00;
+    color: #fff;
+    border-radius: 4px;
+    z-index: 3;
+}
+
+/* 5. UNIVERZALNI KONTEJNERI I PROMO ELEMENTI */
+.promocija-izdanja {
+    text-align: center;
+    padding: 80px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.glavni-naslov {
+    font-size: 42px;
+    color: #ffcc00;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.podnaslov {
+    font-size: 18px;
+    color: #cccccc;
+    margin-bottom: 40px;
+}
+
+.dugme-katalog {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #000000;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+.dugme-katalog:hover {
+    background-color: #e6b800;
+    color: #000;
+}
+
+.kontejner-stranice {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.stranica-naslov {
+    font-size: 36px;
+    color: #ffcc00;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.stranica-opis {
+    text-align: center;
+    color: #888888;
+    margin-bottom: 50px;
+}
+
+.tekst-blok-centriran {
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    text-align: center;
+}
+
+.tekst-blok-centriran h2 {
+    color: #ffcc00;
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.tekst-blok-centriran p {
+    color: #cccccc;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+/*6. STRANICA "IZDANJA" (ROSTER IZVOĐAČA)*/
+.mreza-izdanja-vertikalna {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.profil-izvodjaca {
+    display: flex;
+    background-color: #111111;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 30px;
+    gap: 30px;
+    align-items: center;
+    scroll-margin-top: 100px; 
+    transition: border-color 0.3s ease;
+}
+
+.profil-izvodjaca:hover {
+    border-color: #ffcc00;
+}
+
+.foto-blok {
+    flex: 1;
+    max-width: 300px;
+    height: 300px;
+}
+
+.foto-blok img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.info-blok {
+    flex: 2;
+}
+
+.info-blok h2 {
+    font-size: 32px;
+    color: #ffffff;
+    margin-bottom: 5px;
+}
+
+.izdanje-hit {
+    background-color: #1a1a1a;
+    padding: 12px;
+    border-left: 4px solid #ffcc00;
+    margin: 20px 0;
+    font-size: 15px;
+    color: #eeeeee;
+}
+
+.dugme-strim {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 2px solid #ffcc00;
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.dugme-strim:hover {
+    background-color: #ffcc00;
+    color: #000;
+}
+
+.mreza-izdanja {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.kartica-izdanja {
+    background-color: #111111;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    width: 350px;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.kartica-izdanja:hover {
+    transform: translateY(-5px);
+    border-color: #ffcc00;
+}
+
+.kontejner-slike {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+.slika-artikla {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.kartica-izdanja:hover .slika-artikla {
+    transform: scale(1.05);
+}
+
+.detalji-izdanja {
+    padding: 20px;
+}
+
+.detalji-izdanja h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.zanr-oznaka {
+    color: #ffcc00;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.opis-albuma {
+    color: #aaaaaa;
+    font-size: 14px;
+    height: 60px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.cena-albuma {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.dugme-narudzba {
+    width: 100%;
+    background-color: transparent;
+    border: 2px solid #ffcc00;
+    color: #ffcc00;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dugme-narudzba:hover {
+    background-color: #ffcc00;
+    color: #000;
+}
+
+/* 7. VIDEO SEKCIJA & MULTIMEDIJA (O NAMA)*/
+.video-sekcija-izmenjena {
+    margin-top: 60px;
+    padding: 40px 0;
+}
+
+.sekcija-naslov-video {
+    color: #ffcc00;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.mreza-videa {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.video-karta {
+    flex: 1;
+    min-width: 340px;
+    background-color: #111111;
+    border: 1px solid #222222;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.video-karta h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.video-kontejner {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    border: 2px solid #222;
+}
+
+.video-kontejner iframe,
+.video-kontejner video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background-color: #000;
+}
+
+.video-karta p {
+    color: #888888;
+    font-size: 14px;
+    margin-top: 15px;
+    line-height: 1.5;
+}
+
+/* 8. EKSTERNA GOOGLE MAPA SECKCIJA*/
+.lokacija-sekcija {
+    margin: 50px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.mapa-okvir {
+    border: 2px solid #ffcc00;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* 9. KONTAKT FORMA (POSTANI ZVEZDA)*/
+.kontakt-forma-okvir {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #121212;
+    border: 1px solid #333333;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.kontakt-forma-okvir .form-label {
+    color: #ffffff !important;
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.kontakt-forma-okvir .form-control,
+.kontakt-forma-okvir .form-select {
+    background-color: #1a1a1a !important;
+    color: #ffffff !important;
+    border: 1px solid #444444 !important;
+    padding: 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.kontakt-forma-okvir .form-control:focus,
+.kontakt-forma-okvir .form-select:focus {
+    background-color: #222222 !important;
+    border-color: #ffcc00 !important;
+    box-shadow: 0 0 8px rgba(255, 204, 0, 0.2) !important;
+    outline: none;
+}
+
+.dugme-narudzba-forma {
+    width: 100%;
+    background-color: #ffcc00;
+    color: #000000;
+    border: none;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.dugme-narudzba-forma:hover {
+    background-color: #e6b800;
+    transform: translateY(-2px);
+}
+
+.dugme-narudzba-forma:active {
+    transform: translateY(0);
+}
+
+/* 10. SVETLI MOD (LIGHT MODE) PRAVILA*/
+body.svetli-mod {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+}
+
+body.svetli-mod .glavna-navigacija {
+    background-color: #f5f5f5 !important;
+    border-bottom: 2px solid #111111 !important;
+}
+
+body.svetli-mod .nav-meni .nav-link,
+body.svetli-mod .logo-link {
+    color: #333333 !important;
+}
+
+body.svetli-mod .nav-meni .nav-link:hover,
+body.svetli-mod .nav-meni .nav-link.aktivno {
+    color: #e6b800 !important;
+}
+
+body.svetli-mod .mega-meni {
+    background-color: #eaeaea !important;
+    border: 1px solid #cccccc !important;
+}
+
+body.svetli-mod .mega-kolona h4 {
+    color: #111111 !important;
+    border-bottom: 1px solid #cccccc !important;
+}
+
+body.svetli-mod .mega-kolona a {
+    color: #444444 !important;
+}
+
+body.svetli-mod .mega-kolona a:hover {
+    color: #e6b800 !important;
+}
+
+body.svetli-mod .glavni-naslov,
+body.svetli-mod .stranica-naslov,
+body.svetli-mod .tekst-blok-centriran h2,
+body.svetli-mod .sekcija-naslov-video {
+    color: #111111 !important;
+}
+
+body.svetli-mod .podnaslov,
+body.svetli-mod .stranica-opis,
+body.svetli-mod .tekst-blok-centriran p {
+    color: #333333 !important;
+}
+
+body.svetli-mod .profil-izvodjaca,
+body.svetli-mod .video-karta,
+body.svetli-mod .kartica-izdanja {
+    background-color: #f9f9f9 !important;
+    border-color: #dddddd !important;
+}
+
+body.svetli-mod .info-blok h2,
+body.svetli-mod .video-karta h3,
+body.svetli-mod .detalji-izdanja h3 {
+    color: #111111 !important;
+}
+
+body.svetli-mod .izdanje-hit {
+    background-color: #eeeeee !important;
+    color: #222222 !important;
+    border-left: 4px solid #111111 !important;
+}
+
+body.svetli-mod .video-karta p,
+body.svetli-mod .opis-albuma {
+    color: #555555 !important;
+}
+
+body.svetli-mod .kontakt-forma-okvir {
+    background-color: #f9f9f9 !important;
+    border-color: #dddddd !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+body.svetli-mod .kontakt-forma-okvir .form-label {
+    color: #111111 !important;
+}
+
+body.svetli-mod .kontakt-forma-okvir .form-control,
+body.svetli-mod .kontakt-forma-okvir .form-select {
+    background-color: #ffffff !important;
+    color: #111111 !important;
+    border: 1px solid #cccccc !important;
+}
+
+body.svetli-mod .kontrola-btn {
+    background-color: #eeeeee;
+    color: #111111;
+    border-color: #cccccc;
+}
+
+body.svetli-mod .kontrola-btn:hover {
+    background-color: #111111;
+    color: #ffffff;
+    border-color: #111111;
+}
+
+body.svetli-mod footer {
+    background-color: #f5f5f5 !important;
+    color: #777777 !important;
+    border-top: 1px solid #dddddd !important;
+}
+
+/* 11. POTPUNA RESPONZIVNOST KROZ MEDIJSKE UPITE */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: #000000;
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 10px;
+    }
+
+    body.svetli-mod .navbar-collapse {
+        background-color: #f5f5f5;
+    }
+    
+    .nav-meni {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+
+    .nav-meni .nav-item {
+        margin: 5px 0;
+    }
+
+    .kontrole-pristupacnosti {
+        margin-top: 15px;
+        margin-left: 0;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .mega-meni {
+        position: static !important;
+        transform: none !important;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        display: none; 
+        background: #111;
+    }
+    
+    .ima-mega-meni:hover .mega-meni {
+        display: block !important;
+    }
+
+    .mega-meni-red {
+        flex-direction: column;
+        gap: 15px;
+        padding: 0;
+    }
+
+    .mega-kolona {
+        text-align: center;
+    }
+
+    /* Elementi na stranicama */
+    .stranica-naslov {
+        font-size: 2rem !important;
+    }
+
+    .stranica-opis {
+        font-size: 1rem !important;
+        padding: 0 15px;
+    }
+
+    .kontejner-stranice {
+        padding: 10px;
+        margin: 30px auto;
+    }
+
+    .mreza-videa {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .video-karta {
+        min-width: 100%;
+    }
+
+    .video-kontejner iframe, 
+    .video-kontejner video {
+        height: 220px;
+    }
+
+    .mapa-okvir iframe {
+        height: 300px;
+    }
+
+    .lokacija-sekcija {
+        padding: 0 10px;
+        margin: 30px auto;
+    }
+
+    .profil-izvodjaca {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .foto-blok {
+        width: 100% !important;
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .info-blok {
+        width: 100% !important;
+    }
+
+    .kontakt-forma-okvir {
+        padding: 25px 15px !important;
+        margin: 0 10px;
+    }
+}
+
+/* 12. FUTER*/
+footer {
+    background-color: #000000;
+    text-align: center;
+    padding: 25px;
+    color: #666666;
+    font-size: 14px;
+    border-top: 1px solid #111111;
+    margin-top: 80px;
+}

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postani Zvezda | 101 Records</title>
+    <link rel="icon" type="image/png" href="slike/logo.png">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/stilovi.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark glavna-navigacija">
+    <div class="container nav-kontejner">
+        <a href="index.html" class="navbar-brand logo-link">
+            <img src="slike/logo.png" alt="LZ Logo" class="sajt-logo">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav nav-meni ms-auto align-items-center">
+                <li class="nav-item"><a class="nav-link" href="index.html">Početna</a></li>
+                
+                <li class="nav-item ima-mega-meni">
+                    <a href="izdanja.html" class="nav-link kategorije-link">Izvođači 👇</a>
+                    <div class="mega-meni">
+                        <div class="mega-meni-red">
+                            <div class="mega-kolona">
+                                <h4>Mainstream / Trap</h4>
+                                <a href="izdanja.html#voyage-nucci">Voyage</a>
+                                <a href="izdanja.html#relja">Klinac</a>
+                            </div>
+                            <div class="mega-kolona">
+                                <h4>Hip-Hop & Production</h4>
+                                <a href="izdanja.html#coby">Coby</a>
+                                <a href="izdanja.html#mili">Relja</a>
+                            </div>
+                            <div class="mega-kolona">
+                                <h4>Novi Talas</h4>
+                                <a href="izdanja.html#crni-cerak">Rouzi</a>
+                                <a href="izdanja.html#zera">Ba$ha</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                
+                <li class="nav-item"><a class="nav-link" href="o-nama.html">O nama</a></li>
+                <li class="nav-item"><a class="nav-link aktivno" href="kontakt.html">Postani Zvezda</a></li>
+            </ul>
+
+            <div class="kontrole-pristupacnosti ms-lg-3 mt-3 mt-lg-0">
+                <button id="promeni-mod" class="kontrola-btn" title="Promeni mod (Svetlo/Tamno)">🌓</button>
+                <button id="povecaj-tekst" class="kontrola-btn" title="Povećaj slova">A+</button>
+                <button id="smanji-tekst" class="kontrola-btn" title="Smanji slova">A-</button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="kontejner-stranice">
+    <h1 class="stranica-naslov">POŠALJI SVOJ DEMO</h1>
+    <p class="stranica-opis">Misliš da imaš hit? Popuni formu, priloži link do pesme i naš tim će te kontaktirati.</p>
+    
+    <div class="kontakt-forma-okvir">
+        <form id="kontaktForma" action="#" method="POST" novalidate>
+            <div class="mb-4">
+                <label for="ime" class="form-label">Umetničko Ime / Ime i Prezime</label>
+                <input type="text" class="form-control" id="ime" required>
+            </div>
+            
+            <div class="mb-4">
+                <label for="email" class="form-label">E-mail adresa</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            
+            <div class="mb-4">
+                <label for="zanr" class="form-label">Primarni Žanr</label>
+                <select class="form-select" id="zanr">
+                    <option>Trap</option>
+                    <option>Hip-Hop / Rap</option>
+                    <option>Drill</option>
+                    <option>R&B / Pop-Folk</option>
+                </select>
+            </div>
+            
+            <div class="mb-4">
+                <label for="link" class="form-label">Link do tvog demo snimka (YouTube / Soundcloud / Drive)</label>
+                <input type="url" class="form-control" id="link" placeholder="https://" required>
+            </div>
+            
+            <div class="mb-4">
+                <label for="poruka" class="form-label">Reci nam nešto o sebi (Biografija)</label>
+                <textarea class="form-control" id="poruka" rows="5"></textarea>
+            </div>
+            
+            <button type="submit" class="dugme-narudzba-forma">POŠALJI PRIJAVU</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Izdavačka Kuća "101 Records". Sva prava zadržana.</p>
+</footer>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.js"></script>
+<script src="js/skripta.js"></script>
+</body>
+</html>
